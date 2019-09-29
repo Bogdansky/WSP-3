@@ -1,24 +1,97 @@
-﻿<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+﻿<div class="container-fluid row">
+    <div class="col-xs-12">
+        <fieldset>
+            <legend>Создать студента</legend>
+            <div id="post" class="form-group">
+                <input class="form-control" name="Name" type="text" placeholder="Имя" />
+                <input class="form-control" name="Phone" type="text" placeholder="Номер" />
+            </div>
+            <button class="btn">Создать</button>
+        </fieldset>
+        <fieldset>
+            <legend>Изменить данные о студенте</legend>
+            <div id="put" class="form-group">
+                <input class="form-control" name="Id" type="number" placeholder="Уникальный идентификатор (обязательное поле)" />
+                <input class="form-control" name="Name" type="text" placeholder="Имя" />
+                <input class="form-control" name="Phone" type="text" placeholder="Номер" />
+                <small class="form-text text-muted">Оставьте поле пустым, если его менять не надо</small>
+            </div>
+            <button class="btn">Изменить</button>
+        </fieldset>
+        <fieldset>
+            <legend>Удалить данные студента</legend>
+            <div id="delete" class="form-group">
+                <label>Уникальный идентификатор удаляемого студента</label>
+                <input class="form-control" name="Id" type="number" />
+            </div>
+            <button class="btn">Удалить</button>
+        </fieldset>
+        <fieldset>
+            <legend>Получить данные о конкретном студенте</legend>
+            <div id="get" class="form-group">
+                <label>Уникальный идентификатор студента</label>
+                <input class="form-control" name="Id" type="number" />
+            </div>
+            <button class="btn">Получить</button>
+        </fieldset>
+        <fieldset>
+            <legend>Получить данные о студентах</legend>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="filter" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Отфильтровать
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="pagination" id="defaultCheck2">
+                <label class="form-check-label" for="defaultCheck2">
+                    Пагинация
+                </label>
+            </div>
+            <div id="filter">
+                <fieldset>
+                    <legend>Фильтр</legend>
+                    <label>Минимальное значение ID</label>
+                    <input class="form-control" name="MinId" type="number" value="1" placeholder="Уникальный идентификатор (обязательное поле)" />
+                    <label>Максимальное значение ID</label>
+                    <input class="form-control" name="MaxId" type="number" placeholder="Уникальный идентификатор (обязательное поле)" />
+                    <label>Поиск по имени</label>
+                    <input class="form-control" name="Like" type="text" />
+                    <label>Поиск по всем полям</label>
+                    <input class="form-control" name="GlobalLike" type="text" />
+                    <small class="form-text text-muted">Оставьте поле пустым, если его менять не надо</small>
+                </fieldset>
+            </div>
+            <div id="pagination">
+                <fieldset>
+                    <legend>Постраничный вывод</legend>
+                    <label>Смещение</label>
+                    <input class="form-control" name="Id" type="number" placeholder="Уникальный идентификатор (обязательное поле)" />
+                    <label>Максимальное число записей</label>
+                    <input class="form-control" name="Name" type="text" placeholder="Имя" />
+                    <label>Сортировка по</label>
+                    <div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="SortField" id="byid" value="false" checked>
+                            <label class="form-check-label" for="byid">
+                                ID
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="SortField" id="byname" value="true">
+                            <label class="form-check-label" for="byname">   
+                                Имени
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <button class="btn">Получить</button>
+        </fieldset>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
+    <div id="result" class="col-xs-12">
+        <fieldset>
+            <legend>Результат</legend>
+        </fieldset>
     </div>
 </div>
