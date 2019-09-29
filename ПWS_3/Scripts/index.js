@@ -31,6 +31,7 @@ function onButtonClick(e) {
 
 function onCheckBoxClick(element) {
     let id = element.id;
+document.querySelector("div.manipulate")
     let div = document.querySelector(`div #${id}`).firstChild;
     div.style.display = element.checked ? "inherited" : "none";
 }
