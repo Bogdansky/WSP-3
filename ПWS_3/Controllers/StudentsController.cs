@@ -12,6 +12,7 @@ using ПWS_3.Helpers;
 using ПWS_3.Models;
 using ПWS_3.Services;
 using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
+using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
 
 namespace ПWS_3.Controllers
 {
@@ -28,7 +29,7 @@ namespace ПWS_3.Controllers
         {
             try
             {
-                if(id is null)
+                if(id is null || id.Value == 0)
                 {
                     return Ok(new { StatusCode = 200, Students = studentService.GetStudents() });
                 }
@@ -68,7 +69,7 @@ namespace ПWS_3.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         public IHttpActionResult GetFiltered([FromBody]StudentFilter filter)
         {
             try
@@ -86,7 +87,7 @@ namespace ПWS_3.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         public IHttpActionResult GetPaginated([FromBody]PaginationFilter filter)
         {
             try
@@ -103,7 +104,7 @@ namespace ПWS_3.Controllers
                 return Ok(new { e.StatusCode, Info = errorURI });
             }
         }
-
+        [HttpPost]
         public IHttpActionResult GetFilteredAndPaginated(GlobalFilter filter)
         {
             try

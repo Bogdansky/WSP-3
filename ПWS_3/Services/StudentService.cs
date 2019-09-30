@@ -56,6 +56,14 @@ namespace ПWS_3.Services
         public List<Student> GetStudents(PaginationFilter filter)
         {
             var students = _context.Students.AsQueryable();
+            if (filter.Sort)
+            {
+                students = students.OrderBy(s => s.Name);
+            }
+            else
+            {
+                students = students.OrderBy(s => s.Id);
+            }
             if (filter.Offset > 0)
             {
                 students = students.Skip(filter.Offset);
@@ -63,10 +71,6 @@ namespace ПWS_3.Services
             if (filter.Limit > 0)
             {
                 students = students.Take(filter.Limit);
-            }
-            if (filter.Sort)
-            {
-                students = students.OrderBy(s => s.Name);
             }
             return students.ToList();
         }
