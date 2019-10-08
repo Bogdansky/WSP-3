@@ -39,9 +39,15 @@ function onButtonClick(e) {
 function readStudent(id) {
     let url = methods[id];
     let stId = $(`#${id} input[name='Id']`).val();
+    let fields = $(`#${id} input[name='Fields']`).val();
+    if (fields) {
+        url = url + `?fields=${fields}`;
+    } else {
+        url: url + `?id=${stId ? stId : 0}`;
+    }
     $.ajax({
         method: "GET",
-        url: url + `?id=${stId ? stId : 0}`
+        url
     })
     .done(data => {
         if (data.StatusCode == "400") {
