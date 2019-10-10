@@ -82,7 +82,6 @@ function updateStudent(id) {
     let stId = $(`#${id} input[name='Id']`).val();
     let name = $(`#${id} input[name='Name']`).val();
     let phone = $(`#${id} input[name='Phone']`).val();
-    debugger
     $.ajax({
         method: "PUT",
         url: url + "?id=" + stId,

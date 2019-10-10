@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
-using System.Xml;
-using System.Xml.Serialization;
 using ПWS_3.Helpers;
 using ПWS_3.Models;
 using ПWS_3.Services;
 using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
 using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
+using HttpPutAttribute = System.Web.Http.HttpPutAttribute;
+using HttpDeleteAttribute = System.Web.Http.HttpDeleteAttribute;
 
 namespace ПWS_3.Controllers
 {
@@ -134,7 +128,7 @@ namespace ПWS_3.Controllers
                 return Ok(new { e.StatusCode, Info = errorURI });
             }
         }
-
+        [HttpPut]
         public IHttpActionResult Put(int id, StudentDTO student)
         {
             try
@@ -147,7 +141,7 @@ namespace ПWS_3.Controllers
                 return Ok(new { e.StatusCode, Info = errorURI });
             }
         }
-
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             try

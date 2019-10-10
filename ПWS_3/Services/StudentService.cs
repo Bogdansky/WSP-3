@@ -144,6 +144,10 @@ namespace ПWS_3.Services
 
         public Student Update(int id, StudentDTO model)
         {
+            if (id < 0)
+            {
+                throw new OperationException(ErrorEnum.InCorrectParams);
+            }
             var student = _context.Students.Find(id);
             if (student != null)
             {
