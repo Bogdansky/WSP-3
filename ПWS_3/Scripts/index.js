@@ -43,7 +43,7 @@ function readStudent(id) {
     if (fields) {
         url = url + `?fields=${fields}`;
     } else {
-        url: url + `?id=${stId ? stId : 0}`;
+        url = url + `?id=${stId ? stId : 0}`;
     }
     $.ajax({
         method: "GET",
